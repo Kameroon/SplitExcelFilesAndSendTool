@@ -1,0 +1,243 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7ABC917F-D4D3-4366-8B7F-565F501AEE47}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WpfAppSplitExcelFiles</RootNamespace>
+    <AssemblyName>WpfAppSplitExcelFiles</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Converters\Converter.cs" />
+    <Compile Include="Helpers\DelegateCommand.cs" />
+    <Compile Include="Helpers\RowRange.cs" />
+    <Compile Include="Models\ColumnName.cs" />
+    <Compile Include="Models\SendFile.cs" />
+    <Compile Include="ViewModels\ViewModel.cs" />
+    <Compile Include="ViewModels\ViewModelBase.cs" />
+    <Compile Include="ViewModels\VM.cs" />
+    <Compile Include="Views\SendMailControl.xaml.cs">
+      <DependentUpon>SendMailControl.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Views\LoadingControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\LoadingControl.xaml.cs">
+      <DependentUpon>LoadingControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Views\SendMailControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Images\GRILLE_REMU_CP_FAFIEC.pdf" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\18697.png" />
+    <Resource Include="Images\33998.png" />
+    <Resource Include="Images\36013.png" />
+    <Resource Include="Images\36205.png" />
+    <Resource Include="Images\addCart.jpg" />
+    <Resource Include="Images\back01.png" />
+    <Resource Include="Images\back02.png" />
+    <Resource Include="Images\back03.png" />
+    <Resource Include="Images\back04.png" />
+    <Resource Include="Images\back05.png" />
+    <Resource Include="Images\Capture.PNG" />
+    <Resource Include="Images\Capture2.PNG" />
+    <Resource Include="Images\CaptureAd.PNG" />
+    <Resource Include="Images\CaptureAllUsers.PNG" />
+    <Resource Include="Images\CaptureUserWindow.PNG" />
+    <Resource Include="Images\charteGrapAdmin1.PNG" />
+    <Resource Include="Images\charteGrapAdmin2.PNG" />
+    <Resource Include="Images\charteGrapAdmin3.PNG" />
+    <Resource Include="Images\charteGrapUser1.PNG" />
+    <Resource Include="Images\charteGrapUser2.PNG" />
+    <Resource Include="Images\home01.png" />
+    <Resource Include="Images\home02.png" />
+    <Resource Include="Images\home03.png" />
+    <Resource Include="Images\images %281%29.jpg" />
+    <Resource Include="Images\images %2810%29.jpg" />
+    <Resource Include="Images\images %2811%29.jpg" />
+    <Resource Include="Images\images %2812%29.jpg" />
+    <Resource Include="Images\images %2813%29.jpg" />
+    <Resource Include="Images\images %2814%29.jpg" />
+    <Resource Include="Images\images %2815%29.jpg" />
+    <Resource Include="Images\images %2816%29.jpg" />
+    <Resource Include="Images\images %2817%29.jpg" />
+    <Resource Include="Images\images %2818%29.jpg" />
+    <Resource Include="Images\images %2819%29.jpg" />
+    <Resource Include="Images\images %282%29.jpg" />
+    <Resource Include="Images\images %2820%29.jpg" />
+    <Resource Include="Images\images %2821%29.jpg" />
+    <Resource Include="Images\images %2822%29.jpg" />
+    <Resource Include="Images\images %2823%29.jpg" />
+    <Resource Include="Images\images %2824%29.jpg" />
+    <Resource Include="Images\images %2825%29.jpg" />
+    <Resource Include="Images\images %2826%29.jpg" />
+    <Resource Include="Images\images %2827%29.jpg" />
+    <Resource Include="Images\images %2828%29.jpg" />
+    <Resource Include="Images\images %2829%29.jpg" />
+    <Resource Include="Images\images %283%29.jpg" />
+    <Resource Include="Images\images %2830%29.jpg" />
+    <Resource Include="Images\images %2831%29.jpg" />
+    <Resource Include="Images\images %2832%29.jpg" />
+    <Resource Include="Images\images %2833%29.jpg" />
+    <Resource Include="Images\images %2834%29.jpg" />
+    <Resource Include="Images\images %2835%29.jpg" />
+    <Resource Include="Images\images %2836%29.jpg" />
+    <Resource Include="Images\images %2837%29.jpg" />
+    <Resource Include="Images\images %2838%29.jpg" />
+    <Resource Include="Images\images %2839%29.jpg" />
+    <Resource Include="Images\images %284%29.jpg" />
+    <Resource Include="Images\images %2840%29.jpg" />
+    <Resource Include="Images\images %2841%29.jpg" />
+    <Resource Include="Images\images %285%29.jpg" />
+    <Resource Include="Images\images %286%29.jpg" />
+    <Resource Include="Images\images %287%29.jpg" />
+    <Resource Include="Images\images %288%29.jpg" />
+    <Resource Include="Images\images %289%29.jpg" />
+    <Resource Include="Images\images.jpg" />
+    <Resource Include="Images\img1.jpg" />
+    <Resource Include="Images\Lo38KpA.gif" />
+    <Resource Include="Images\loading.gif" />
+    <Resource Include="Images\loading_fr.gif" />
+    <Resource Include="Images\next01.png" />
+    <Resource Include="Images\next02.png" />
+    <Resource Include="Images\panier1.jpg" />
+    <Resource Include="Images\panier1.png" />
+    <Resource Include="Images\panier2.jpg" />
+    <Resource Include="Images\panier2.png" />
+    <Resource Include="Images\parcourir.png" />
+    <Resource Include="Images\roue.png" />
+    <Resource Include="Images\roue1.png" />
+    <Resource Include="Images\roue2.jpg" />
+    <Resource Include="Images\roue4.png" />
+    <Resource Include="Images\roue5.png" />
+    <Resource Include="Images\roue6.png" />
+    <Resource Include="Images\roue7.gif" />
+    <Resource Include="Images\valid.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

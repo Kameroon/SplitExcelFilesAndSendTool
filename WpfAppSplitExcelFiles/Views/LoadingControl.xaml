@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="SplitExcelFiles.Views.LoadingControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SplitExcelFiles.Views"
+             mc:Ignorable="d"  Background="#FFF"  
+             Height="600" Width="950">
+    
+    <StackPanel>
+        <Border Background="#2B2B2B" Opacity=".9" Width="500" Height="250" Margin="0,50,0,0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="60" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="60" />
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="90" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="70" />
+                </Grid.RowDefinitions>
+
+                <TextBlock Foreground="White" FontWeight="Bold" FontSize="20" Grid.Column="0" Grid.Row="0" Margin="0,20,0,0" Grid.ColumnSpan="3" Text="App Split Excel Files"
+                           TextAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock Foreground="White" FontWeight="Black" FontSize="28" Grid.Column="1" Grid.Row="1" Text="Veuillez patienter ..." VerticalAlignment="Center" 
+                           HorizontalAlignment="Center"/>
+            </Grid>
+        </Border>
+    </StackPanel>
+</UserControl>

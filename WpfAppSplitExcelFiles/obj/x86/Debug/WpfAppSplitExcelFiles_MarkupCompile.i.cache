@@ -1,0 +1,20 @@
+﻿WpfAppSplitExcelFiles
+
+
+winexe
+C#
+.cs
+C:\Users\Michael\Desktop\My Projects\SPLITEXCELFILES\WpfAppSplitExcelFiles\obj\x86\Debug\
+WpfAppSplitExcelFiles
+none
+false
+DEBUG;TRACE
+C:\Users\Michael\Desktop\My Projects\SPLITEXCELFILES\WpfAppSplitExcelFiles\App.xaml
+31563465503
+
+191133102179
+152104780307
+Views\LoadingControl.xaml;Views\MainWindow.xaml;Views\SendMailControl.xaml;
+
+False
+
